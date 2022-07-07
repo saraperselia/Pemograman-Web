@@ -1,59 +1,78 @@
-<!-- fontawesome cdn -->
-<link rel="stylesheet" href={{ asset("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css") }} integrity={{ asset("sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==") }} crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- bootstrap css -->
-<link rel = "stylesheet" href = {{ asset("bootstrap-5.0.2-dist/css/bootstrap.min.css") }}>
-<!-- custom css -->
-<link href = {{ asset("/css/main.css") }} rel = "stylesheet" >
-<link rel="stylesheet" href="/js/script.js">
-    <nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top ">
-    <div class = "container">
-        <a class = "navbar-brand">
-            <img src = {{ asset("img/LOGO4.png") }} alt = "site icon" width="70">
-            <span class = "text-uppercase fw-lighter ms-2">Teman Bearly Beauty</span>
-        </a>
-        <div class = "order-lg-2 nav-btns">
-            <button type = "button" class = "btn position-relative" >
-                <i class = "fa fa-shopping-cart"></i>
-                <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary" style="background-color: #e5345b">5</span>
-            </button>
-            <button type = "button" class = "btn position-relative">
-                <i class = "fa fa-heart"></i>
-                <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">2</span>
-            </button>
-            <button type = "button" class = "btn position-relative">
-                <i class = "fa fa-search"></i>
-            </button>
+<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
         </div>
-
-        <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
-            <span class = "navbar-toggler-icon"></span>
-        </button>
-
-        <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
-            <ul class = "navbar-nav mx-auto text-center active">
-                <li class = "nav-item px-2 py-2">
-                    <a class = "nav-link text-uppercase text-dark {{ ($active == "home") ?'active': ' ' }}" href = "/">home</a>
-                </li>
-                <li class = "nav-item px-2 py-2">
-                    <a class = "nav-link text-uppercase text-dark {{ ($active == "produk") ?'active': ' ' }}" href = "/produk">Products</a>
-                </li>
-                <li class = "nav-item px-2 py-2">
-                    <a class = "nav-link text-uppercase text-dark {{ ($active == "kategori") ?'active': ' ' }}" href = "#category ">Category</a>
-                </li>
-                <li class = "nav-item px-2 py-2">
-                    <a class = "nav-link text-uppercase text-dark {{ ($active == "about") ?'active': ' ' }}" href = "#about">About us</a>
-                </li>
-               
-            </ul>
-            
-        </div>
-        
     </div>
-    <ul class = "navbar-nav text-right active">
-        <li class = "nav-item">
-            <a class = "nav-link text-uppercase text-dark {{ ($active == "dashboard") ?'active': ' ' }}" href = "/dashboard/products" >Dashboard &emsp;&emsp;</a>
-        </li>
-    </ul>
-</nav>     
+</nav>
+ 
 
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand text-dark logo h1 align-self-center" href="index.html">
+      Cah Bocah Official
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+      <div class="flex-fill">
+        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/') ? 'active' : '' }}"  href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  {{ Request::is('posts') ? 'active' : '' }}" href="/posts">Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Request::is('categories') ? 'active' : '' }}" href="/categories">Category</a>
+              </li>
+              {{-- <li class="nav-item">
+                <a class="nav-link {{ Request::is('history') ? 'active' : '' }}" href="/history">History</a>
+              </li> --}}
+              <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+              @auth
+              <li class="nav-item">
+                @php
+                
+                  $current_order = \App\Models\Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
+                  if($current_order) $notification = \App\Models\Checkout::where('order_id', $current_order->id)->count();
+                @endphp
+                <a href="/orders" class=" btn nav-link position-relative">
+                  <h5><i class="bi bi-cart-fill text-dark"></i></h5>
+                  <span style="top:8px; left:27px;" class="position-absolute translate-middle badge rounded-pill bg-danger">
+                    {{ $notification ?? 0 }}
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#dashboard" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Welcome back, {{ Auth::user()->name }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> My Dashboard</a>
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <form action="/logout" method="post">
+                        @csrf
+                      <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                    </form>
+                </ul>
+              </li>
+            @else
+            <li class="nav-item">
+              <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+            </li>
+            @endauth
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
 

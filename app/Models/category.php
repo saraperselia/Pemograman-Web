@@ -2,24 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class category extends Model
+class Category extends Model
 {
-    use HasFactory;
-    protected $guarded =['id'];
-    protected $fillable = [
-        'namakategori', 'slug'
-    ];
-    
-    public function produk(){
-        return $this->hasMany(produk::class);
+    use HasFactory, Sluggable;
+
+    protected $guarded=['id'];
+
+    public function posts(){
+        return $this->hasMany(Post::class);
     }
+
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 }
-

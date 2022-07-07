@@ -1,324 +1,188 @@
 @extends('layouts.main')
-@include('partials.header');
+
 @section('container')
-
- <!-- collection -->
- <section id = "collection" class = "py-5">
-     <div class = "container">
-         <div class = "title text-center">
-             <h2 class = "position-relative d-inline-block">Sale</h2>
-         </div>
-
-         <div class = "row g-0">
-             <div class = "collection-list mt-4 row gx-0 gy-3">
-                 <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
-                    @if($produk->find(1)!=null)
-                     <a href="/produk/{{ $produk->find(1)->slug }}" class="link"  >
-                     <div class = "special-img position-relative overflow-hidden">
-                         <img src="img/Emina Ms Pimple Acne Solution Face Wash.jpg" class = "w-100" width="300" height="300">
-                         <span class = "position-absolute bg-primary text-white d-flex align-items-center justify-content-center circle">sale</span>
-                     </div>
-                     <div class = "text-center">
-                         <div class = "rating mt-3">
-                             <span class = "text-primary"><i class = "fas fa-star" ></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         </div>
-                         <p class = "text-capitalize my-1">Emina Ms Pimple Acne Solution Face Wash</p>
-                         <span class = "fw-bold">Rp 16.300</span>
-                     </a>
-                     @endif
-                     </div>
-                 </div>
-                 
-                 <div class = "col-md-6 col-lg-4 col-xl-3 p-2 feat">
-                     <div class = "special-img position-relative overflow-hidden">
-                        @if($produk->find(6)!=null)
-                         <a href="/produk/{{ $produk->find(6)->slug }}" class="link"  >
-                         <img src = "img/Innisfree Sheet Mask.jpg" class = "w-100" width="300" height="300">
-                         <span class = "position-absolute bg-primary text-white d-flex align-items-center justify-content-center circle">sale</span>
-                     </div>
-                     <div class = "text-center">
-                         <div class = "rating mt-3">
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         </div>
-                         <p class = "text-capitalize my-1">Innisfree Sheet Mask</p>
-                         <span class = "fw-bold">Rp 4.100</span>
-                     </a>
-                     @endif
-                     </div>
-                 </div>
-
-                 <div class = "col-md-6 col-lg-4 col-xl-3 p-2 new">
-                     <div class ="special-img position-relative overflow-hidden">
-                        @if($produk->find(4)!=null)
-                         <a href="/produk/{{ $produk->find(4)->slug }}" class="link"  >
-                         <img src = "img/Wardah EyeXpert Eye Shadow Passionate 4.2 gr.jpg" class = "w-100" width="300" height="300">
-                         <span class = "position-absolute bg-primary text-white d-flex align-items-center justify-content-center circle">sale</span>
-                     </div>
-                     <div class = "text-center">
-                         <div class = "rating mt-3">
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         </div>
-                         <p class = "text-capitalize my-1">Wardah EyeXpert Eye Shadow Passionate 4.2 gr</p>
-                         <span class = "fw-bold">Rp 39.500</span>
-                     </a>
-                     </a>
-                     @endif
-                     </div>
-                 </div>
-
-                 <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
-                     <div class = "special-img position-relative overflow-hidden">
-                        @if($produk->find(3)!=null)
-                         <a href="/produk/{{ $produk->find(3)->slug }}" class="link"  >
-                         <img src = "img/Wardah Everyday Luminous Face Powder 30 g.jpg" class = "w-100" width="300" height="300">
-                         <span class = "position-absolute bg-primary text-white d-flex align-items-center justify-content-center circle ">sale</span>
-                         
-                     </div>
-                     <div class = "text-center">
-                         <div class = "rating mt-3">
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                             <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         </div>
-                         <p class = "text-capitalize my-1">Wardah Everyday Luminous Face Powder 30 g</p>
-                         <span class = "fw-bold">Rp 35.500</span>
-                     </a>
-                     @endif
-                     </div>
-                 </div>
-
-                 
-             </div>
-         </div>
-     </div>
- </section>
- <!-- end of collection -->
-  <!-- Best Sellers -->
-  <section id = "special" class = "py-0">
-     <div class = "container">
-         <div class = "title text-center py-5">
-             <h2 class = "position-relative d-inline-block">Best Sellers</h2>
-         </div>
-
-         <div class = "special-list row g-0">
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/Emina Bright Stuff Moisturizing Cream - Normal.jpg" class = "w-100" width="300" height="300">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                 </div>
-                 <div class = "text-center">
-                     <div class = "rating mt-3">
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                     </div>
-                     <p class = "text-capitalize mt-3 mb-1">Emina Bright Stuff Moisturizing Cream - Normal</p>
-                     <span class = "fw-bold d-block">Rp 18.002</span>
-                     @if($produk->find(9)!=null)
-                     <a href = "/produk/{{ $produk->find(9)->slug }}" class = "btn btn-primary mt-3">Add to Cart</a>
-                     @endif
-                 </div>
-             </div>
-
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/Wardah Lightening Night Cream - 20 gr.jpg" class = "w-100">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                 </div>
-                 <div class = "text-center">
-                     <div class = "rating mt-3">
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                     </div>
-                     <p class = "text-capitalize mt-3 mb-1">Wardah Lightening Night Cream - 20 gr</p>
-                     <span class = "fw-bold d-block">Rp 22.500</span>
-                     @if($produk->find(10)!=null)
-                     <a href = "/produk/{{ $produk->find(10)->slug }}" class = "btn btn-primary mt-3">Add to Cart</a>
-                     @endif
-                 </div>
-             </div>
-
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/Geamoore Inspired Parfum 6ml.jpg" class = "w-100">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                 </div>
-                 <div class = "text-center">
-                     <div class = "rating mt-3">
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                     </div>
-                     <p class = "text-capitalize mt-3 mb-1">Geamoore Inspired Parfum 6ml</p>
-                     <span class = "fw-bold d-block">Rp 4.700</span>
-                     @if($produk->find(7)!=null)
-                     <a href = "/produk/{{ $produk->find(7)->slug }}" class = "btn btn-primary mt-3">Add to Cart</a>
-                     @endif
-                 </div>
-             </div>
-
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/Geamoore addicted parfum 5ml.jpg" class = "w-100">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                 </div>
-                 <div class = "text-center">
-                     <div class = "rating mt-3">
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                         <span class = "text-primary"><i class = "fas fa-star"></i></span>
-                     </div>
-                     <p class = "text-capitalize mt-3 mb-1">Geamoore addicted parfum 5ml</p>
-                     <span class = "fw-bold d-block">Rp 4.600</span>
-                     <section id = "category" >
-                    @if($produk[7]!=null)
-                     <a href = "/produk/{{ $produk[7]->slug }}" class = "btn btn-primary mt-3">Add to Cart</a>
-                     @endif
-                 </div>
-             </div>
-         </div>
-     </div>
- </section>
- <!-- end of best sellers -->
-<!-- Category -->
-  
-     <div class = "container">
-         <div class = "title text-center py-5">
-             <h2 class = "position-relative d-inline-block">Category</h2>
-         </div>
-         
-         <div class = "special-list row "> 
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                <a class="link" href="/category/{{ $category[0]->slug }}">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/skincare.jpg" class = "w-100">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                     <div class="card-img-overlay d-flex align-items-center p-0">
-                         <h5 class="card-title text-center flex-fill p-2 fs-0 text-capitalize mt-3 mb-1" style="background-color: rgba(0,0,0,0.2)">{{ $category[0]->namakategori }}</h5>
-                     </div>
+    <!-- Start Banner Hero -->
+    <section class=" slider_section position-relative">
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="gambar/logoremov.png" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>CahBocah</b>Official</h1>
+                                <h3 class="h2">Welcome To Cah Bocah Official</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
             </div>
-            
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                <a class="link" href="/category/{{ $category[1]->slug }}">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/makeup.jpg" class = "w-100">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                     <div class="card-img-overlay d-flex align-items-center p-0">
-                         <h5 class="card-title text-center flex-fill p-2 fs-0 text-capitalize mt-3 mb-1" style="background-color: rgba(0,0,0,0.2)">{{ $category[1]->namakategori }}</h5>
-                     </div>
-                 </div>
-                </a>
-             </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="Gambar/Remove.png" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Comfortable And Friendly Clothes</h1>
+                                <h3 class="h2">Harga Murah Namun Kualitas Tidak Murahan</h3>
+                                <p>
+                                    Cintai Produk Dalam Negeri Dengan Membeli Produk Cah Bocah
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="gambar/hai.png" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Office Hour</h1>
+                                <h3 class="h2">Senin - Minggu </h3>
+                                <h3 class="h2">09.00 - 22.00 WIB </h3>
+                                <p>
+                                    Semua produk yang dapat dipesan berarti ready stock dan siap kirim
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+    <!-- End Banner Hero -->
 
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                <a class="link" href="/category/{{ $category[2]->slug }}">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/parfum.jpg" class = "w-100">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                     <div class="card-img-overlay d-flex align-items-center p-0">
-                         <h5 class="card-title text-center flex-fill p-2 fs-0 text-capitalize mt-3 mb-1" style="background-color: rgba(0,0,0,0.2)">{{ $category[2]->namakategori }}</h5>
-                     </div>
-                 </div>
-                </a>
-             </div>
+    <div style="height: 1px" class="w-100 bg-success"></div>
 
-             <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
-                <a class="link" href="/category/{{ $category[3]->slug }}">
-                 <div class = "special-img position-relative overflow-hidden">
-                     <img src = "img/bag.jpg" class = "w-100">
-                     <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                         <i class = "fas fa-heart"></i>
-                     </span>
-                     <div class="card-img-overlay d-flex align-items-center p-0">
-                         <h5 class="card-title text-center flex-fill p-2 fs-0 text-capitalize mt-3 mb-1" style="background-color: rgba(0,0,0,0.2)">{{ $category[3]->namakategori }}</h5>
-                     </div>
-                 </div>
-                </a>
-             </div>
-         </div>
-     </div>
- </section>
- <!-- end of Category -->
- 
- <!-- offer -->
- <section id = "offers" class = "py-5">
-     <div class = "container">
-         <div class = "row d-flex align-items-center justify-content-center text-center ">
-             <div class = " offers-content">
-                 <span class = "text-capitalize text-white">Discount Up To 40%</span>
-                 <h2 class = " text-capitalize text-white">Grand Sale Offer!</h2>
-                 <a href = "#" class = "btn">Buy Now</a>
-             </div>
-         </div>
-         <section id = "about" ">
-     </div>
- </section>
- <!-- end of offer -->
 
- <!-- about us -->
- 
-     <div class = "container">
-         <div class = "row gy-lg-5 align-items-center">
-             <div class = "col-lg-6 order-lg-1 text-center text-lg-start">
-                 <div class = "title pt-3 pb-5">
-                     <h2 class = "position-relative d-inline-block ms-4">About Us</h2>
-                 </div>
-                 <p class = "lead text-muted">Teman Bearly Beauty.</p>
-                 <p>Teman Bearly Beauty merupakan online shop yang menjual berbagai macam skincare,
-                     makeup, parfum, dan aksesoris dari berbagai brand lokal maupun internasional</p>
-                 <p>No Telp : 085156340246</p>
-             </div>
-             <div class = "col-lg-6 order-lg-0 py-5">
-                 <img src = "img/about.jpg" alt = "" class = "img-fluid">
-             </div>
-         </div>
-     </div>
- </section>
- <!-- end of about us -->
+    {{-- <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Categories of The Month</h1>
+                <p>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Watches</h5>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- End Categories of The Month --> --}}
 
-    
+<section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1 text-success"><b>About</b>Us</h1>
+                <p>
+                    Cah Bocah merupakan sebuah toko online shop yang menjual berbagai pakaian anak. Cah Bocah menggunakan bahan premium combed cotton 30s Sehingga anak-anak akan merasa nyaman ketika memakainya.
+                    Cah Bocah mempunyai model yang kekinian, dengan harga yang murah namun kualitas sangat baik dan tdak murahan. Cah Bocah berada di kota Sidoarjo, Jawa Timur.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+  
+   
+{{-- 
+    <!-- Start Footer -->
+<footer class="bg-dark" id="tempaltemo_footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-success border-bottom pb-3 border-light logo">Cah Bocah</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                        Bungurasih Dalam, Waru, Sidoarjo
+                    </li>
+                    <li>
+                        <i class="fa fa-phone fa-fw"></i>
+                        <a class="text-decoration-none" href="tel:010-020-0340">08972135728</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope fa-fw"></i>
+                        <a class="text-decoration-none" href="mailto:info@company.com">cahbocah@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li><a class="text-decoration-none" href="#">Dress</a></li>
+                    <li><a class="text-decoration-none" href="#">T-Shirt</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li><a class="text-decoration-none" href="#">Home</a></li>
+                    <li><a class="text-decoration-none" href="#">About Us</a></li>
+                    <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+                    <li><a class="text-decoration-none" href="#">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="row text-light mb-4">
+            <div class="col-12 mb-3">
+                <div class="w-100 my-3 border-top border-light"></div>
+            </div>
+            <div class="col-auto me-auto">
+                <ul class="list-inline text-left footer-icons">
+                    <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/cahbocah.yr/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                    </li>
+                    <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none" target="_blank" href="https://shopee.co.id/cahbocahofficial"><i class="fab fa-shopee fa-lg fa-fw"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!-- End Footer --> --}}
+
 @endsection
- 
-
-
-    
- 
